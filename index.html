@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h1>Contain Letters</h1>
+        <div class="hasil">
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        const kalimat = prompt('Masukkan kalimat');
+        const karakter = prompt('Masukkan karakter yang akan di cek');
+        const arrayKarakter = [];
+        for (let i = 0; i < karakter.length; i++) {
+            arrayKarakter[i] = karakter[i];
+        }
+        
+        const containLetters = (requestKalimat, requestKarakter) => {
+            let hasil;
+            for (let i = 0; i < requestKarakter.length; i++) {
+                if(requestKalimat.toLowerCase().indexOf(requestKarakter[i]) > -1) {
+                    hasil = $('.hasil').append(`<span>Karakter ${requestKarakter[i]} terkandung dalam kalimat ${requestKalimat}</span></br>`);
+                    
+                } else {
+                    hasil = hasil = $('.hasil').append(`<span>Ada salah satu atau seluruh karakter yang tidak terkandung dalam kalimat ${requestKalimat}</span>`);
+                    break;
+                }
+            }
+
+            return hasil;
+        }
+
+        containLetters(kalimat, arrayKarakter);
+    </script>
+</body>
+</html>
